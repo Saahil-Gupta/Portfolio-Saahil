@@ -1,0 +1,83 @@
+// src/components/Experience.jsx
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const experiences = [
+    {
+        role: 'AI Intern',
+        company: 'Appolo Computers',
+        location: 'Remote / Hamilton, ON',
+        dates: 'May 2025 – Present',
+        details: [
+        'Leading development of a computer‐vision pipeline to extract structured data from handwritten birth certificates.',
+        'Evaluating and fine‐tuning OCR and vision AI models (TrOCR, PaddleOCR, Google Cloud Vision) to boost recognition accuracy.',
+        'Configured CUDA‐enabled PaddlePaddle environment for efficient GPU training and model experimentation.',
+        ],
+    },
+    {
+        role: 'Guest Registration Assistant',
+        company: 'McMaster Housing and Conference Services',
+        location: 'Hamilton, ON',
+        dates: 'Mar 2024 – Present',
+        details: [
+        'Safeguarded students’ mental and physical well-being during overnight shifts by building strong relationships with 40 residents.',
+        'Facilitated communication among emergency services, residence supervisors, and security to uphold student safety.',
+        ],
+    },
+    {
+        role: 'Front End Development Intern',
+        company: 'InStoreIn Technologies Ltd',
+        location: 'Delhi, India',
+        dates: 'Jul 2022 – Aug 2022',
+        details: [
+        'Developed interactive mockups for the Admin module using HTML, CSS, and JavaScript, reducing user errors and enhancing UI.',
+        'Increased engagement on the Telegram channel and Discord server by 8% through interactive content updates.',
+        'Supported three projects, improving project efficiency by 4% and delivering all deadlines.',
+        ],
+    },
+    {
+        role: 'Software Engineering Intern',
+        company: 'ProcMart',
+        location: 'Noida, India',
+        dates: 'Jun 2022 – Jul 2022',
+        details: [
+        'Identified and resolved software bugs, improving system stability and reducing reported issues within one month.',
+        'Reduced development time for new features by 20% through efficient coding practices.',
+        'Contributed to new features, enhancing user engagement on the ProcMart platform.',
+        ],
+    },
+];
+
+export default function Experience() {
+    return (
+        <section id="experience" className="py-16 bg-gray-900 dark:bg-gray-800">
+        <motion.section
+            id="about"
+            className="py-16 bg-gray-800 dark:bg-gray-700"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+        >
+        <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-mono text-white mb-8">Experience</h2>
+            <div className="space-y-8">
+            {experiences.map(({ role, company, location, dates, details }) => (
+                <div key={`${role}-${company}`}>
+                <h3 className="text-2xl text-cyan-400 font-semibold">{role}</h3>
+                <p className="text-gray-400 italic mb-2">
+                    {company} · {location} · {dates}
+                </p>
+                <ul className="list-disc list-inside text-gray-300 space-y-1">
+                    {details.map((point, i) => (
+                    <li key={i}>{point}</li>
+                    ))}
+                </ul>
+                </div>
+            ))}
+            </div>
+        </div>
+        </motion.section>
+        </section>
+    );
+}
