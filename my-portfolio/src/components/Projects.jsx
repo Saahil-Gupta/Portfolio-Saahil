@@ -6,28 +6,28 @@ const projects = [
     {
         title: 'Lights Camera Auction',
         description: 'Silent Auction platform',
-        image: './assets/Lights Camera Auction.jpg',        // add your screenshots here
+        image: '/Images/Lights Camera Auction.jpg',        // add your screenshots here
         codeUrl: 'https://github.com/Saahil-Gupta/Lights-Camera-Auction',
         demoUrl: 'https://devpost.com/software/lights-camera-auction',
     },
     {
         title: 'Egg-ucate Me',
         description: 'AI-powered personalized learning platform with adaptive flashcards and quizzes.',
-        image: './assets/Eggucateme.png',        // add your screenshots here
+        image: '/Images/Eggucateme.png',        // add your screenshots here
         codeUrl: 'https://github.com/Saahil-Gupta/egg-ucate-me',
         demoUrl: 'https://devpost.com/software/egg-ucate-me',
     },
     {
         title: 'AuxiHelper',
         description: 'Full-stack web app to connect users with service providers.',
-        image: './assets/AuxiHelper.jpg',
+        image: '/Images/AuxiHelper.jpg',
         codeUrl: 'https://github.com/Saahil-Gupta/auxihelper',
         demoUrl: null,
     },
     {
         title: 'Python Discord Bot (Swift Bot)',
         description: 'Discord bot that increased server engagement by 15% through interactive features.',
-        image: './assets/discord-bot.png',
+        image: '/Images/discord-bot.png',
         codeUrl: 'https://github.com/Saahil-Gupta/swift-bot',
         demoUrl: null,
     },
