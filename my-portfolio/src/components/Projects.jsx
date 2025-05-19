@@ -4,6 +4,13 @@ import { motion } from 'framer-motion';
 
 const projects = [
     {
+        title: 'Portfolio Website',
+        description: 'My personal portfolio website showcasing my projects and skills. (a.k.a this website)',
+        image: '/Images/Portfolio Website.jpg',        // add your screenshots here
+        codeUrl: 'https://github.com/Saahil-Gupta/Portfolio-Saahil',
+        demoUrl: 'https://portfolio-saahil.vercel.app/',
+    },
+    {
         title: 'Lights Camera Auction',
         description: 'Silent Auction platform',
         image: '/Images/Lights Camera Auction.jpg',        // add your screenshots here
@@ -27,7 +34,7 @@ const projects = [
     {
         title: 'Python Discord Bot (Swift Bot)',
         description: 'Discord bot that increased server engagement by 15% through interactive features.',
-        image: '/Images/discord-bot.png',
+        image: '/Images/discord.png',
         codeUrl: 'https://github.com/Saahil-Gupta/swift-bot',
         demoUrl: null,
     },

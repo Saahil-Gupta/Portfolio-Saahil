@@ -1,3 +1,4 @@
+// src/components/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { HiOutlineMail } from 'react-icons/hi';
@@ -6,17 +7,7 @@ import { SiTiktok } from 'react-icons/si';
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
-
-    // Dark-mode sync
-    useEffect(() => {
-        const saved = localStorage.getItem('theme');
-        const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const isDark = saved ? saved === 'dark' : prefers;
-        document.documentElement.classList.toggle('dark', isDark);
-        setDarkMode(isDark);
-    }, []);
 
     // ▶️ Scroll-spy
     useEffect(() => {
@@ -37,13 +28,6 @@ export default function Navbar() {
         return () => observers.forEach(o => o.disconnect());
     }, []);
 
-    const toggleDark = () => {
-        document.documentElement.classList.toggle('dark');
-        const next = !darkMode;
-        setDarkMode(next);
-        localStorage.setItem('theme', next ? 'dark' : 'light');
-    };
-
     const linkClass = id =>
         `hover:text-cyan-400 ${activeSection === id ? 'text-cyan-400' : ''}`;
 
@@ -51,10 +35,10 @@ export default function Navbar() {
         <nav className="fixed w-full z-20 bg-transparent px-6 py-4 flex items-center justify-between">
             <div className="text-white font-mono text-lg">Saahil Gupta</div>
             <div className="hidden md:flex items-center space-x-6">
-                <a href="#home"    className={linkClass('home')}>Home</a>
+                <a href="#home"     className={linkClass('home')}>Home</a>
                 <a href="#projects" className={linkClass('projects')}>Projects</a>
-                <a href="#about"   className={linkClass('about')}>About</a>
-                <a href="#contact" className={linkClass('contact')}>Contact</a>
+                <a href="#about"    className={linkClass('about')}>About</a>
+                <a href="#contact"  className={linkClass('contact')}>Contact</a>
 
                 {/* social icons */}
                 <a href="mailto:gupts42@mcmaster.ca" className="hover:text-cyan-400">
@@ -66,10 +50,6 @@ export default function Navbar() {
                 <a href="https://github.com/Saahil-Gupta" target="_blank" rel="noreferrer" className="hover:text-cyan-400">
                     <FaGithub size={20} />
                 </a>
-                {/* dark mode toggle */}
-                <button onClick={toggleDark} className="ml-4">
-                    {darkMode ? '🌙' : '🌞'}
-                </button>
             </div>
 
             {/* mobile menu button */}
@@ -83,10 +63,23 @@ export default function Navbar() {
             {/* mobile menu panel */}
             {menuOpen && (
                 <div className="absolute top-full left-0 w-full bg-gray-900 dark:bg-gray-800 flex flex-col p-6 space-y-4 md:hidden">
-                    <a href="#home"    onClick={()=>setMenuOpen(false)} className={linkClass('home')}>Home</a>
-                    <a href="#projects" onClick={()=>setMenuOpen(false)} className={linkClass('projects')}>Projects</a>
-                    <a href="#about"    onClick={()=>setMenuOpen(false)} className={linkClass('about')}>About</a>
-                    <a href="#contact"  onClick={()=>setMenuOpen(false)} className={linkClass('contact')}>Contact</a>
+                    <a href="#home"     onClick={() => setMenuOpen(false)} className={linkClass('home')}>Home</a>
+                    <a href="#projects" onClick={() => setMenuOpen(false)} className={linkClass('projects')}>Projects</a>
+                    <a href="#about"    onClick={() => setMenuOpen(false)} className={linkClass('about')}>About</a>
+                    <a href="#contact"  onClick={() => setMenuOpen(false)} className={linkClass('contact')}>Contact</a>
+
+                    {/* mobile social icons */}
+                    <div className="flex space-x-4 mt-4">
+                        <a href="mailto:gupts42@mcmaster.ca" className="hover:text-cyan-400">
+                            <HiOutlineMail size={20} />
+                        </a>
+                        <a href="https://linkedin.com/in/saahil-gupta" target="_blank" rel="noreferrer" className="hover:text-cyan-400">
+                            <FaLinkedin size={20} />
+                        </a>
+                        <a href="https://github.com/Saahil-Gupta" target="_blank" rel="noreferrer" className="hover:text-cyan-400">
+                            <FaGithub size={20} />
+                        </a>
+                    </div>
                 </div>
             )}
         </nav>
