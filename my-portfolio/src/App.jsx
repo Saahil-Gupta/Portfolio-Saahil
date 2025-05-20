@@ -6,6 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './Pages/Home';
 import AllProjects from './Pages/AllProjects';
+import { motion } from 'framer-motion';
 
 export default function App() {
     const [showSplash, setShowSplash] = useState(true);
@@ -22,25 +23,31 @@ export default function App() {
         return () => window.removeEventListener('orientationchange', onOrientationChange);
     }, []);
 
-    if (showSplash) {
-        return (
-            <AnimatePresence>
+    return (
+        <AnimatePresence exitBeforeEnter>
+            {showSplash ? (
                 <SplashScreen
                     key="splash"
                     onFinish={() => setShowSplash(false)}
                 />
-            </AnimatePresence>
-        );
-    }
-
-
-    return (
-        <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
-                <Route path="/projects" element={<AllProjects />} />
-                <Route path="/" element={<Home />} />
-            </Routes>
-        </BrowserRouter>
+            ) : (
+                // Wrap Home (and your router) in a motion.div
+                <motion.div
+                    key="home"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8, ease: 'easeOut' }}
+                >
+                    <BrowserRouter>
+                        <ScrollToTop />
+                        <Routes>
+                            <Route path="/projects" element={<AllProjects />} />
+                            <Route path="/" element={<Home />} />
+                        </Routes>
+                    </BrowserRouter>
+                </motion.div>
+            )}
+        </AnimatePresence>
     );
 }

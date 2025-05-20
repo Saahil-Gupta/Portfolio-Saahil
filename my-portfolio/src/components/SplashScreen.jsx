@@ -1,5 +1,6 @@
 // src/components/SplashScreen.jsx
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const languages = [
     'Hello', 'नमस्ते', 'Bonjour', 'Hola', 'こんにちは',
@@ -19,10 +20,15 @@ export default function SplashScreen({ onFinish }) {
     }, [index, onFinish]);
 
     return (
-        <div className="flex items-center justify-center h-screen w-screen bg-black">
+        <motion.div
+            className="flex items-center justify-center h-screen w-screen bg-black"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 1.2 }}
+            transition={{ duration: 1.5 }}
+        >
         <h1 className="text-white text-6xl sm:text-8xl font-bold animate-fade">
             {languages[Math.min(index, languages.length - 1)]}
         </h1>
-        </div>
+        </motion.div>
     );
 }
