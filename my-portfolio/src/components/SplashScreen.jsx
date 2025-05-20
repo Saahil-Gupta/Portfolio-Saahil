@@ -13,14 +13,14 @@ export default function SplashScreen({ onFinish }) {
         const iv = setInterval(() => setIndex(i => i + 1), 500);
         if (index >= languages.length) {
         clearInterval(iv);
-        setTimeout(onFinish, 500);
+        setTimeout(onFinish, 300);
         }
         return () => clearInterval(iv);
     }, [index, onFinish]);
 
     return (
         <div className="flex items-center justify-center h-screen w-screen bg-black">
-        <h1 className="text-white text-5xl font-bold animate-fade">
+        <h1 className="text-white text-6xl sm:text-8xl font-bold animate-fade">
             {languages[Math.min(index, languages.length - 1)]}
         </h1>
         </div>

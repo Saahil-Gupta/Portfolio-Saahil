@@ -1,5 +1,6 @@
 // src/components/Hero.jsx
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 
 export default function Hero() {
@@ -18,6 +19,13 @@ export default function Hero() {
 
     return (
         <section id="home" className="relative h-screen bg-black overflow-hidden">
+        {/* <motion.section
+            id="home"
+            className="relative h-screen bg-black overflow-hidden"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+        ></motion.section> */}
             {/* Overlay content */}
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
                 <h1 className="text-5xl font-bold text-white drop-shadow-lg mb-4">

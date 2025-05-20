@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const projects = [
     {
@@ -40,19 +41,37 @@ const projects = [
     },
 ];
 
-export default function Projects() {
+export default function Projects({ showAll = false }) {
+    const [visibleCount, setVisibleCount] = useState(projects.length);
+
+    useEffect(() => {
+        if (showAll) {
+            setVisibleCount(projects.length);
+            return;
+        }
+        const handleResize = () => {
+            const w = window.innerWidth;
+            if (w < 768) setVisibleCount(3);
+            else if (w < 1024) setVisibleCount(4);
+            else setVisibleCount(5);
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [showAll]);
+
+    const list = showAll ? projects : projects.slice(0, visibleCount);
+
     return (
-        <section id="projects" className="py-16 bg-gray-800 dark:bg-gray-700">
+        <section id="projects" className="py-16 bg-gray-100 dark:bg-gray-900">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-mono text-white mb-8">Projects</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.map(({ title, description, image, codeUrl, demoUrl }) => (
+                    {list.map(({ title, description, image, codeUrl, demoUrl }) => (
                         <motion.div
                             key={title}
-                            className="bg-gray-900 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
-                            style={{ perspective: 1000, transformStyle: 'preserve-3d' }}
-                            whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
-                            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                            className="bg-gray-900 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col"
+                            whileHover={{ scale: 1.03, boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}
                         >
                             <div className="h-48 bg-gray-700">
                                 <img
@@ -61,12 +80,14 @@ export default function Projects() {
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <div className="p-6">
-                                <h3 className="text-2xl text-cyan-400 font-semibold mb-2 flex items-center">
+                            <div className="p-6 flex flex-col flex-1">
+                                <h3 className="text-2xl text-cyan-400 font-semibold mb-2">
                                     {title}
                                 </h3>
-                                <p className="text-gray-300 mb-4">{description}</p>
-                                <div className="flex space-x-4">
+                                <p className="text-gray-300 mb-4 flex-1">
+                                    {description}
+                                </p>
+                                <div className="flex space-x-4 mt-auto">
                                     <a
                                         href={codeUrl}
                                         target="_blank"
@@ -90,6 +111,17 @@ export default function Projects() {
                         </motion.div>
                     ))}
                 </div>
+
+                {!showAll && projects.length > visibleCount && (
+                    <div className="text-center mt-6">
+                        <Link
+                            to="/projects"
+                            className="px-6 py-3 bg-cyan-400 text-black font-semibold rounded shadow hover:bg-cyan-500 transition"
+                        >
+                            View More Projects
+                        </Link>
+                    </div>
+                )}
             </div>
         </section>
     );

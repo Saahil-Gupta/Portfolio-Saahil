@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { HiOutlineMail } from 'react-icons/hi';
-import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
-import { SiTiktok } from 'react-icons/si';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { HashLink as Link } from 'react-router-hash-link';
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -34,13 +34,15 @@ export default function Navbar() {
     return (
         <nav className="fixed w-full z-20 bg-transparent px-6 py-4 flex items-center justify-between">
             <div className="text-white font-mono text-lg">Saahil Gupta</div>
-            <div className="hidden md:flex items-center space-x-6">
-                <a href="#home"     className={linkClass('home')}>Home</a>
-                <a href="#projects" className={linkClass('projects')}>Projects</a>
-                <a href="#about"    className={linkClass('about')}>About</a>
-                <a href="#contact"  className={linkClass('contact')}>Contact</a>
 
-                {/* social icons */}
+            {/* Desktop links */}
+            <div className="hidden md:flex items-center space-x-6">
+                <Link smooth to="/#home"     className={linkClass('home')}>Home</Link>
+                <Link smooth to="/#projects" className={linkClass('projects')}>Projects</Link>
+                <Link smooth to="/#about"    className={linkClass('about')}>About</Link>
+                <Link smooth to="/#contact"  className={linkClass('contact')}>Contact</Link>
+
+                {/* Social icons */}
                 <a href="mailto:gupts42@mcmaster.ca" className="hover:text-cyan-400">
                     <HiOutlineMail size={20} />
                 </a>
@@ -52,23 +54,23 @@ export default function Navbar() {
                 </a>
             </div>
 
-            {/* mobile menu button */}
+            {/* Mobile menu button */}
             <button
                 className="md:hidden text-white"
                 onClick={() => setMenuOpen(o => !o)}
             >
-                {menuOpen ? <FiX size={24}/> : <FiMenu size={24}/>}
+                {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
 
-            {/* mobile menu panel */}
+            {/* Mobile menu panel */}
             {menuOpen && (
                 <div className="absolute top-full left-0 w-full bg-gray-900 dark:bg-gray-800 flex flex-col p-6 space-y-4 md:hidden">
-                    <a href="#home"     onClick={() => setMenuOpen(false)} className={linkClass('home')}>Home</a>
-                    <a href="#projects" onClick={() => setMenuOpen(false)} className={linkClass('projects')}>Projects</a>
-                    <a href="#about"    onClick={() => setMenuOpen(false)} className={linkClass('about')}>About</a>
-                    <a href="#contact"  onClick={() => setMenuOpen(false)} className={linkClass('contact')}>Contact</a>
+                    <Link smooth to="/#home"    onClick={() => setMenuOpen(false)} className={linkClass('home')}>Home</Link>
+                    <Link smooth to="/#projects"onClick={() => setMenuOpen(false)} className={linkClass('projects')}>Projects</Link>
+                    <Link smooth to="/#about"   onClick={() => setMenuOpen(false)} className={linkClass('about')}>About</Link>
+                    <Link smooth to="/#contact" onClick={() => setMenuOpen(false)} className={linkClass('contact')}>Contact</Link>
 
-                    {/* mobile social icons */}
+                    {/* Mobile social icons */}
                     <div className="flex space-x-4 mt-4">
                         <a href="mailto:gupts42@mcmaster.ca" className="hover:text-cyan-400">
                             <HiOutlineMail size={20} />
