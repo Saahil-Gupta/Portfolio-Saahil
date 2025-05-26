@@ -64,9 +64,10 @@ export default function Navbar() {
 
             {/* Mobile menu panel */}
             {menuOpen && (
-                <div className="absolute top-full left-0 w-full bg-[#213448] dark:bg-[#213448] flex flex-col p-6 space-y-4 md:hidden">
+                <div className="absolute top-full left-0 w-full bg-white/10 backdrop-blur-md dark:bg-white/20 flex flex-col p-6 space-y-4 md:hidden">
                     <Link smooth to="/#home"    onClick={() => setMenuOpen(false)} className={linkClass('home')}>Home</Link>
-                    <Link smooth to="/#projects"onClick={() => setMenuOpen(false)} className={linkClass('projects')}>Projects</Link>
+                    {/* <Link smooth to="/#projects"onClick={() => setMenuOpen(false)} className={linkClass('projects')}>Projects</Link> */}
+                    <a href="#projects" onClick={() => scrollTo('projects')} className={linkClass('projects')}>Projects</a>
                     <Link smooth to="/#about"   onClick={() => setMenuOpen(false)} className={linkClass('about')}>About</Link>
                     <Link smooth to="/#contact" onClick={() => setMenuOpen(false)} className={linkClass('contact')}>Contact</Link>
 

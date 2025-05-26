@@ -40,7 +40,7 @@ export default function App() {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.8, ease: 'easeOut' }}
                 >
-                    <Background />
+                    <Background scale={1.5} offset={0.15} />
                     <BrowserRouter>
                         <ScrollToTop />
                         <Routes>

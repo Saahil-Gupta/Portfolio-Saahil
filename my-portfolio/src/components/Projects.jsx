@@ -78,7 +78,7 @@ export default function Projects({ showAll = false }) {
     const list = showAll ? projects : projects.slice(0, visibleCount);
 
     return (
-        <section className="relative flex justify-center py-12 px-4">
+        <section id='projects' className="relative flex justify-center py-12 px-4">
         <Background />
         <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-4xl">
             <h2 className="text-3xl font-bold mb-4 text-white">Projects</h2>
