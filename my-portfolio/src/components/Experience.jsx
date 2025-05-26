@@ -10,9 +10,9 @@ const experiences = [
         location: 'Remote / Hamilton, ON',
         dates: 'May 2025 – Present',
         details: [
-        'Automated preprocessing and labeling tasks with Python to accelerate model training.',
-        'Evaluating and fine‐tuning OCR and vision AI models (TrOCR, PaddleOCR, Google Cloud Vision) to boost recognition accuracy.',
-        'Configured CUDA‐enabled PaddlePaddle environment for efficient GPU training and model experimentation.',
+        'Conducted data preprocessing and preparation for AI model training workflows.',
+        'Supported model evaluation and performance benchmarking tasks.',
+        'Assisted in optimizing machine learning pipelines to improve efficiency and reliability.',
         ],
     },
     {
