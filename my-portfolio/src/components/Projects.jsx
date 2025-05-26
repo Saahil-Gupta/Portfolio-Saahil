@@ -43,7 +43,7 @@ const projects = [
     {
         title: 'Simple Keylogger',
         description: 'A simple keylogger that captures keystrokes and saves them to a file.',
-        image: '/Images/Simple Keylogger.jpg',
+        image: '/Images/Keylogger.jpg',
         codeUrl: 'https://github.com/Saahil-Gupta/simple-keylogger',
         demoUrl: null,
     },
