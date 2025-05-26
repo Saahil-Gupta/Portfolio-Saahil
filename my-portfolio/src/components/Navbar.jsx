@@ -29,7 +29,7 @@ export default function Navbar() {
     }, []);
 
     const linkClass = id =>
-        `hover:text-cyan-400 ${activeSection === id ? 'text-cyan-400' : ''}`;
+        `hover:text-[#DFD0B8] ${activeSection === id ? 'text-[#DFD0B8]' : ''}`;
 
     return (
         <nav className="fixed w-full z-20 bg-transparent px-6 py-4 flex items-center justify-between">
@@ -43,13 +43,13 @@ export default function Navbar() {
                 <Link smooth to="/#contact"  className={linkClass('contact')}>Contact</Link>
 
                 {/* Social icons */}
-                <a href="mailto:gupts42@mcmaster.ca" className="hover:text-cyan-400">
+                <a href="mailto:gupts42@mcmaster.ca" className="hover:text-[#ECEFCA]">
                     <HiOutlineMail size={20} />
                 </a>
-                <a href="https://linkedin.com/in/saahil-gupta" target="_blank" rel="noreferrer" className="hover:text-cyan-400">
+                <a href="https://linkedin.com/in/saahil-gupta" target="_blank" rel="noreferrer" className="hover:text-[#ECEFCA]">
                     <FaLinkedin size={20} />
                 </a>
-                <a href="https://github.com/Saahil-Gupta" target="_blank" rel="noreferrer" className="hover:text-cyan-400">
+                <a href="https://github.com/Saahil-Gupta" target="_blank" rel="noreferrer" className="hover:text-[#ECEFCA]">
                     <FaGithub size={20} />
                 </a>
             </div>
@@ -64,7 +64,7 @@ export default function Navbar() {
 
             {/* Mobile menu panel */}
             {menuOpen && (
-                <div className="absolute top-full left-0 w-full bg-gray-900 dark:bg-gray-800 flex flex-col p-6 space-y-4 md:hidden">
+                <div className="absolute top-full left-0 w-full bg-[#213448] dark:bg-[#213448] flex flex-col p-6 space-y-4 md:hidden">
                     <Link smooth to="/#home"    onClick={() => setMenuOpen(false)} className={linkClass('home')}>Home</Link>
                     <Link smooth to="/#projects"onClick={() => setMenuOpen(false)} className={linkClass('projects')}>Projects</Link>
                     <Link smooth to="/#about"   onClick={() => setMenuOpen(false)} className={linkClass('about')}>About</Link>
@@ -72,13 +72,13 @@ export default function Navbar() {
 
                     {/* Mobile social icons */}
                     <div className="flex space-x-4 mt-4">
-                        <a href="mailto:gupts42@mcmaster.ca" className="hover:text-cyan-400">
+                        <a href="mailto:gupts42@mcmaster.ca" className="hover:text-[#ECEFCA]">
                             <HiOutlineMail size={20} />
                         </a>
-                        <a href="https://linkedin.com/in/saahil-gupta" target="_blank" rel="noreferrer" className="hover:text-cyan-400">
+                        <a href="https://linkedin.com/in/saahil-gupta" target="_blank" rel="noreferrer" className="hover:text-[#ECEFCA]">
                             <FaLinkedin size={20} />
                         </a>
-                        <a href="https://github.com/Saahil-Gupta" target="_blank" rel="noreferrer" className="hover:text-cyan-400">
+                        <a href="https://github.com/Saahil-Gupta" target="_blank" rel="noreferrer" className="hover:text-[#ECEFCA]">
                             <FaGithub size={20} />
                         </a>
                     </div>

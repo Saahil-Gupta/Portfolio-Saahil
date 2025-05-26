@@ -3,7 +3,6 @@
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
 
-/* Custom animations for SplashScreen */
 @keyframes fade {
     0%, 100% { opacity: 0; }
     50% { opacity: 1; }

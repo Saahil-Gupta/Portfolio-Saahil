@@ -2,6 +2,7 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
+import Background from './Background';
 
 export default function Contact() {
     const formRef = useRef();
@@ -23,38 +24,39 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="py-16 bg-gray-900 dark:bg-black">
-        <motion.section
-            id="about"
-            className="py-16 bg-gray-800 dark:bg-gray-700"
+        <section id="contact" className="relative flex justify-center py-16 px-4">
+        <Background />
+        <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
+            className="container mx-auto bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-md"
         >
-        <div className="container mx-auto px-4 max-w-md">
-            <h2 className="text-3xl font-mono text-white mb-6 text-center">Contact Me</h2>
+            <h2 className="text-3xl font-mono text-center mb-6 text-[#bbc1c7]">
+            Contact Me
+            </h2>
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
             <input
                 type="text"
                 name="user_name"
                 placeholder="Your Name"
                 required
-                className="w-full px-4 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="w-full px-4 py-2 rounded bg-white/20 backdrop-blur-sm placeholder-[#888] focus:outline-none focus:ring-2 focus:ring-cyan-400"
             />
             <input
                 type="email"
                 name="user_email"
                 placeholder="Your Email"
                 required
-                className="w-full px-4 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="w-full px-4 py-2 rounded bg-white/20 backdrop-blur-sm placeholder-[#888] focus:outline-none focus:ring-2 focus:ring-cyan-400"
             />
             <textarea
                 name="message"
                 rows="5"
                 placeholder="Your Message"
                 required
-                className="w-full px-4 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="w-full px-4 py-2 rounded bg-white/20 backdrop-blur-sm placeholder-[#888] focus:outline-none focus:ring-2 focus:ring-cyan-400"
             />
             <button
                 type="submit"
@@ -64,8 +66,7 @@ export default function Contact() {
             </button>
             {status && <p className="mt-2 text-center text-cyan-400">{status}</p>}
             </form>
-        </div>
-        </motion.section>
+        </motion.div>
         </section>
     );
 }

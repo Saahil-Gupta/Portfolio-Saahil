@@ -1,13 +1,15 @@
 // src/components/Resume.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+import Background from './Background';
 
 export default function Resume() {
     return (
-        <section id="resume" className="py-16 bg-gray-800 dark:bg-gray-700">
+        <section id="resume" className="relative flex justify-center py-16 px-4">
+        <Background />
         <motion.section
             id="about"
-            className="py-16 bg-gray-800 dark:bg-gray-700"
+            className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-4xl"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}

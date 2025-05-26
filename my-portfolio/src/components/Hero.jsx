@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import Spline from '@splinetool/react-spline';
 
 export default function Hero() {
     const [text] = useTypewriter({
@@ -16,26 +17,32 @@ export default function Hero() {
         delaySpeed: 1000
     });
 
-
     return (
-        <section id="home" className="relative h-screen bg-black overflow-hidden">
-        {/* <motion.section
+        <motion.section
             id="home"
-            className="relative h-screen bg-black overflow-hidden"
+            className="relative h-screen overflow-hidden"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-        ></motion.section> */}
+        >
+            {/* 3D background */}
+            <div className="fixed inset-0 -z-10">
+                <Spline
+                    scene="https://prod.spline.design/a-VPqVGLHdEpxlYV/scene.splinecode"
+                    style={{ width: '100vw', height: '100vh' }}
+                />
+            </div>
+
             {/* Overlay content */}
-            <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-                <h1 className="text-5xl font-bold text-white drop-shadow-lg mb-4">
+            <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-4 pb-32">
+                <h1 className="text-6xl sm:text-8xl font-bold text-[#b2cbd5] drop-shadow-lg mb-4">
                     Saahil Gupta
                 </h1>
-                {/* Typewriter tagline */}
-                <p className="text-xl text-gray-200 drop-shadow-md mb-2 font-mono">
-                    {text}<Cursor cursorStyle="|" />
+                <p className="text-2xl sm:text-3xl text-[#b2cbd5] drop-shadow-md mb-2 font-mono">
+                    {text}
+                    <Cursor cursorStyle="|" />
                 </p>
-                <p className="text-lg text-gray-300 italic mb-8 max-w-xl">
+                <p className="text-lg sm:text-xl text-[#b2cbd5] italic mb-8 max-w-xl">
                     Passionate about computer vision, cybersecurity, and building tools that empower users.
                 </p>
                 <button
@@ -44,11 +51,11 @@ export default function Hero() {
                             .getElementById('projects')
                             ?.scrollIntoView({ behavior: 'smooth' })
                     }
-                    className="px-6 py-3 bg-cyan-400 text-black font-semibold rounded shadow hover:bg-cyan-500 transition"
+                    className="px-8 py-4 bg-[#948979] text-[#222831] font-semibold rounded shadow hover:bg-[#DFD0B8] transition"
                 >
                     View Projects
                 </button>
             </div>
-        </section>
+        </motion.section>
     );
 }

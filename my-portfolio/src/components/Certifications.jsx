@@ -9,10 +9,10 @@ const certifications = [
 
 export default function Certifications() {
     return (
-        <section id="certifications" className="py-16 bg-gray-900 dark:bg-gray-800">
+        <section id="certifications" className="relative flex justify-center py-16 px-4">
         <motion.section
             id="about"
-            className="py-16 bg-gray-800 dark:bg-gray-700"
+            className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-4xl"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}

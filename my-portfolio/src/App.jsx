@@ -7,6 +7,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Home from './Pages/Home';
 import AllProjects from './Pages/AllProjects';
 import { motion } from 'framer-motion';
+import Background from './components/Background';
 
 export default function App() {
     const [showSplash, setShowSplash] = useState(true);
@@ -39,6 +40,7 @@ export default function App() {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.8, ease: 'easeOut' }}
                 >
+                    <Background />
                     <BrowserRouter>
                         <ScrollToTop />
                         <Routes>

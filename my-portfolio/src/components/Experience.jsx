@@ -1,6 +1,7 @@
 // src/components/Experience.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+import Background from './Background'; 
 
 const experiences = [
     {
@@ -9,7 +10,7 @@ const experiences = [
         location: 'Remote / Hamilton, ON',
         dates: 'May 2025 – Present',
         details: [
-        'Leading development of a computer‐vision pipeline to extract structured data from handwritten birth certificates.',
+        'Automated preprocessing and labeling tasks with Python to accelerate model training.',
         'Evaluating and fine‐tuning OCR and vision AI models (TrOCR, PaddleOCR, Google Cloud Vision) to boost recognition accuracy.',
         'Configured CUDA‐enabled PaddlePaddle environment for efficient GPU training and model experimentation.',
         ],
@@ -50,25 +51,26 @@ const experiences = [
 
 export default function Experience() {
     return (
-        <section id="experience" className="py-16 bg-gray-900 dark:bg-gray-800">
+        <section id="experience" className="relative flex justify-center py-16 px-4">
+        <Background />
         <motion.section
             id="about"
-            className="py-16 bg-gray-800 dark:bg-gray-700"
+            className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-4xl"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
         >
         <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-mono text-white mb-8">Experience</h2>
+            <h2 className="text-3xl font-mono text-[#ECEFCA] mb-8">Experience</h2>
             <div className="space-y-8">
             {experiences.map(({ role, company, location, dates, details }) => (
                 <div key={`${role}-${company}`}>
-                <h3 className="text-2xl text-cyan-400 font-semibold">{role}</h3>
-                <p className="text-gray-400 italic mb-2">
+                <h3 className="text-2xl text-[#d4d7b6] font-semibold">{role}</h3>
+                <p className="text-[#d4d7b6] italic mb-2">
                     {company} · {location} · {dates}
                 </p>
-                <ul className="list-disc list-inside text-gray-300 space-y-1">
+                <ul className="list-disc list-inside text-[#d4d7b6] space-y-1">
                     {details.map((point, i) => (
                     <li key={i}>{point}</li>
                     ))}

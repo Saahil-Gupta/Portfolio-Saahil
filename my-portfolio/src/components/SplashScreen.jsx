@@ -11,22 +11,22 @@ export default function SplashScreen({ onFinish }) {
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
-        const iv = setInterval(() => setIndex(i => i + 1), 500);
+        const iv = setInterval(() => setIndex(i => i + 1), 400);
         if (index >= languages.length) {
         clearInterval(iv);
-        setTimeout(onFinish, 300);
+        setTimeout(onFinish, 200);
         }
         return () => clearInterval(iv);
     }, [index, onFinish]);
 
     return (
         <motion.div
-            className="flex items-center justify-center h-screen w-screen bg-black"
+            className="flex items-center justify-center h-screen w-screen bg-[#213448]"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 1.2 }}
             transition={{ duration: 1.5 }}
         >
-        <h1 className="text-white text-6xl sm:text-8xl font-bold animate-fade">
+        <h1 className="text-[#ECEFCA] text-6xl sm:text-8xl font-bold animate-fade">
             {languages[Math.min(index, languages.length - 1)]}
         </h1>
         </motion.div>
