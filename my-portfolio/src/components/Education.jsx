@@ -27,7 +27,7 @@ export default function Education() {
             transition={{ duration: 0.6 }}
             className="container mx-auto bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-4xl"
         >
-            <h2 className="text-4xl font-mono font-bold mb-8 text-center text-[#d0d3d5]">
+            <h2 className="text-4xl font-mono font-bold mb-8 text-center text-[#66FCF1]">
             Education
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -36,11 +36,14 @@ export default function Education() {
                 key={edu.degree}
                 className="bg-white/20 backdrop-blur-sm rounded-lg p-6"
                 >
-                <h3 className="text-2xl font-semibold mb-2 text-[#44ddd6]">
+                <h3 className="text-2xl font-semibold mb-2 text-[#66FCF1]">
                     {edu.degree}
                 </h3>
-                <p className="italic text-[#e2e6d1]">
-                    {edu.institution} &middot; {edu.period}
+                <p className="italic text-[#45A29E]">
+                {edu.institution}
+                </p>
+                <p className="mt-2 text-[#C5C6C7]">
+                {edu.period}
                 </p>
                 </div>
             ))}

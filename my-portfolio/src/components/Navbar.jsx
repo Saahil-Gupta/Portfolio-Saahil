@@ -29,11 +29,11 @@ export default function Navbar() {
     }, []);
 
     const linkClass = id =>
-        `hover:text-[#DFD0B8] ${activeSection === id ? 'text-[#DFD0B8]' : ''}`;
+        `hover:text-[#45A29E] ${activeSection === id ? 'text-[#45A29E]' : ''}`;
 
     return (
         <nav className="fixed w-full z-20 bg-transparent px-6 py-4 flex items-center justify-between">
-            <div className="text-white font-mono text-lg">Saahil Gupta</div>
+            <div className="text-[#66FCF1] font-mono text-lg">Saahil Gupta</div>
 
             {/* Desktop links */}
             <div className="hidden md:flex items-center space-x-6">

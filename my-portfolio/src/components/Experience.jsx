@@ -62,15 +62,15 @@ export default function Experience() {
             transition={{ duration: 0.6 }}
         >
         <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-mono text-[#ECEFCA] mb-8">Experience</h2>
+            <h2 className="text-3xl font-mono text-[#66FCF1] mb-8">Experience</h2>
             <div className="space-y-8">
             {experiences.map(({ role, company, location, dates, details }) => (
                 <div key={`${role}-${company}`}>
-                <h3 className="text-2xl text-[#d4d7b6] font-semibold">{role}</h3>
-                <p className="text-[#d4d7b6] italic mb-2">
+                <h3 className="text-2xl text-[#66FCF1] font-semibold">{role}</h3>
+                <p className="text-[#45A29E] italic mb-2">
                     {company} · {location} · {dates}
                 </p>
-                <ul className="list-disc list-inside text-[#d4d7b6] space-y-1">
+                <ul className="list-disc list-inside text-[#C5C6C7] space-y-1">
                     {details.map((point, i) => (
                     <li key={i}>{point}</li>
                     ))}

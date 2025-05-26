@@ -33,7 +33,7 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="container mx-auto bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-md"
         >
-            <h2 className="text-3xl font-mono text-center mb-6 text-[#bbc1c7]">
+            <h2 className="text-3xl font-mono text-center mb-6 text-[#66FCF1]">
             Contact Me
             </h2>
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
@@ -42,29 +42,29 @@ export default function Contact() {
                 name="user_name"
                 placeholder="Your Name"
                 required
-                className="w-full px-4 py-2 rounded bg-white/20 backdrop-blur-sm placeholder-[#888] focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="w-full px-4 py-2 rounded bg-white/20 backdrop-blur-sm placeholder-[#C5C6C7] focus:outline-none focus:ring-2 focus:ring-cyan-400"
             />
             <input
                 type="email"
                 name="user_email"
                 placeholder="Your Email"
                 required
-                className="w-full px-4 py-2 rounded bg-white/20 backdrop-blur-sm placeholder-[#888] focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="w-full px-4 py-2 rounded bg-white/20 backdrop-blur-sm placeholder-[#C5C6C7] focus:outline-none focus:ring-2 focus:ring-cyan-400"
             />
             <textarea
                 name="message"
                 rows="5"
                 placeholder="Your Message"
                 required
-                className="w-full px-4 py-2 rounded bg-white/20 backdrop-blur-sm placeholder-[#888] focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="w-full px-4 py-2 rounded bg-white/20 backdrop-blur-sm placeholder-[#C5C6C7] focus:outline-none focus:ring-2 focus:ring-cyan-400"
             />
             <button
                 type="submit"
-                className="w-full px-4 py-2 bg-cyan-500 text-white rounded hover:bg-cyan-600 transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="w-full px-4 py-2 bg-[#66FCF1] text-black rounded hover:bg-[#45A29E] transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
             >
                 Send Message
             </button>
-            {status && <p className="mt-2 text-center text-cyan-400">{status}</p>}
+            {status && <p className="mt-2 text-center text-black">{status}</p>}
             </form>
         </motion.div>
         </section>

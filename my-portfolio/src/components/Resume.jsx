@@ -16,11 +16,11 @@ export default function Resume() {
             transition={{ duration: 0.6 }}
         >
         <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-mono text-white mb-6">Resume</h2>
+            <h2 className="text-3xl font-mono text-[#66FCF1] mb-6">Resume</h2>
             <a
             href="/Saahil Gupta's Resume.pdf"
             download
-            className="inline-block px-6 py-3 bg-cyan-500 text-white rounded shadow-lg hover:bg-cyan-600 transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            className="inline-block px-6 py-3 bg-[#66FCF1] text-black rounded shadow-lg hover:bg-[#45A29E] transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
             >
             Download My Resume
             </a>

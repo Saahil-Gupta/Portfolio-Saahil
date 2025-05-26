@@ -81,7 +81,7 @@ export default function Projects({ showAll = false }) {
         <section id='projects' className="relative flex justify-center py-12 px-4">
         <Background />
         <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-4xl">
-            <h2 className="text-3xl font-bold mb-4 text-white">Projects</h2>
+            <h2 className="text-3xl font-bold mb-4 text-[#66FCF1]">Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {list.map(({ title, description, image, codeUrl, demoUrl }) => (
                 <motion.div
@@ -97,14 +97,14 @@ export default function Projects({ showAll = false }) {
                     />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-2xl text-white font-semibold mb-2">{title}</h3>
-                    <p className="text-[#ECEFCA] mb-4 flex-1">{description}</p>
+                    <h3 className="text-2xl text-[#66FCF1] font-semibold mb-2">{title}</h3>
+                    <p className="text-[#C5C6C7] mb-4 flex-1">{description}</p>
                     <div className="flex space-x-4 mt-auto">
                     <a
                         href={codeUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center text-[#ECEFCA] hover:text-[#555555] transition"
+                        className="flex items-center text-[#66FCF1] hover:text-[#C5C6C7] transition"
                     >
                         <FaGithub className="mr-1" /> Code
                     </a>
@@ -113,7 +113,7 @@ export default function Projects({ showAll = false }) {
                         href={demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center text-[#ECEFCA] hover:text-[#555555] transition"
+                        className="flex items-center text-[#66FCF1] hover:text-[#C5C6C7] transition"
                         >
                         <FaExternalLinkAlt className="mr-1" /> Demo
                         </a>

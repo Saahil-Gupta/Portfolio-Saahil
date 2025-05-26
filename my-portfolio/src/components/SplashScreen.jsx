@@ -21,12 +21,12 @@ export default function SplashScreen({ onFinish }) {
 
     return (
         <motion.div
-            className="flex items-center justify-center h-screen w-screen bg-[#213448]"
+            className="flex items-center justify-center h-screen w-screen bg-white/10 backdrop-blur-md shadow-lg"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 1.2 }}
             transition={{ duration: 1.5 }}
         >
-        <h1 className="text-[#ECEFCA] text-6xl sm:text-8xl font-bold animate-fade">
+        <h1 className="text-[#66FCF1] text-6xl sm:text-8xl font-bold animate-fade">
             {languages[Math.min(index, languages.length - 1)]}
         </h1>
         </motion.div>

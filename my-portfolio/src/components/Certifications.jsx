@@ -19,8 +19,8 @@ export default function Certifications() {
             transition={{ duration: 0.6 }}
         >
         <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-mono text-white mb-6">Certifications</h2>
-            <ul className="list-disc list-inside text-gray-300 space-y-2">
+            <h2 className="text-3xl font-mono text-[#66FCF1]">Certifications</h2>
+            <ul className="list-disc list-inside text-[#C5C6C7] space-y-2">
             {certifications.map((cert, i) => (
                 <li key={i}>{cert}</li>
             ))}

@@ -35,14 +35,14 @@ export default function Hero() {
 
             {/* Overlay content */}
             <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-4 pb-32">
-                <h1 className="text-6xl sm:text-8xl font-bold text-[#b2cbd5] drop-shadow-lg mb-4">
+                <h1 className="text-6xl sm:text-8xl font-bold text-[#66FCF1] drop-shadow-lg mb-4">
                     Saahil Gupta
                 </h1>
-                <p className="text-2xl sm:text-3xl text-[#b2cbd5] drop-shadow-md mb-2 font-mono">
+                <p className="text-2xl sm:text-3xl text-[#C5C6C7] drop-shadow-md mb-2 font-mono">
                     {text}
                     <Cursor cursorStyle="|" />
                 </p>
-                <p className="text-lg sm:text-xl text-[#b2cbd5] italic mb-8 max-w-xl">
+                <p className="text-lg sm:text-xl text-[#C5C6C7] italic mb-8 max-w-xl">
                     Passionate about computer vision, cybersecurity, and building tools that empower users.
                 </p>
                 <button
@@ -51,7 +51,7 @@ export default function Hero() {
                             .getElementById('projects')
                             ?.scrollIntoView({ behavior: 'smooth' })
                     }
-                    className="px-8 py-4 bg-[#948979] text-[#222831] font-semibold rounded shadow hover:bg-[#DFD0B8] transition"
+                    className="px-8 py-4 bg-[#66FCF1] text-[#222831] font-semibold rounded shadow hover:bg-[#DFD0B8] transition"
                 >
                     View Projects
                 </button>
