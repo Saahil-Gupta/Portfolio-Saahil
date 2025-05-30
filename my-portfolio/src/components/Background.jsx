@@ -9,7 +9,7 @@ export default function Background ({ scale = 1.2, offset = 0.1 }) {
 
     return (
         <div
-        className="fixed -z-10"
+        className="hidden md:block fixed -z-10"
         style={{
             top: `-${offsetPct}%`,
             left: `-${offsetPct}%`,
