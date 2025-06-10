@@ -51,7 +51,7 @@ export default function Hero() {
                             .getElementById('projects')
                             ?.scrollIntoView({ behavior: 'smooth' })
                     }
-                    className="px-8 py-4 bg-[#66FCF1] text-[#222831] font-semibold rounded shadow hover:bg-[#DFD0B8] transition"
+                    className="px-8 py-4 bg-[#66FCF1] text-[#222831] font-semibold rounded shadow hover:bg-[#C5C6C7] transition"
                 >
                     View Projects
                 </button>
