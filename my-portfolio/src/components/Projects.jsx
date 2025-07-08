@@ -6,6 +6,20 @@ import Background from './Background';
 
 const projects = [
     {
+        title: 'Football Predictor',
+        description: 'A web app that predicts football match outcomes in 2 leagues, La Liga and Premier League, using machine learning.',
+        image: '/Images/Football_Predictor.jpg',
+        codeUrl: 'https://github.com/Saahil-Gupta/Football-Predictor-V1',
+        demoUrl: null,
+    },
+    {
+        title: 'Umee Social App Clone',
+        description: 'A project for a social media app clone with features like User Profiles, Matching, Chatting, and more.',
+        image: '/Images/Umee.jpg',
+        codeUrl: 'https://github.com/Saahil-Gupta/Umee-social',
+        demoUrl: null,
+    },
+    {
         title: 'Portfolio Website',
         description: 'My personal portfolio website showcasing my projects and skills. (a.k.a this website)',
         image: '/Images/Portfolio Website.jpg',        
