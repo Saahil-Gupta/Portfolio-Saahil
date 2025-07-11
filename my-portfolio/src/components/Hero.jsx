@@ -26,35 +26,41 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
         >
             {/* 3D background */}
-            <div className="fixed inset-0 -z-10">
-                <Spline
-                    scene="https://prod.spline.design/a-VPqVGLHdEpxlYV/scene.splinecode"
-                    style={{ width: '100vw', height: '100vh' }}
-                />
+            <div className="fixed inset-0 -z-10 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900">
             </div>
+
 
             {/* Overlay content */}
             <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-4 pb-32">
-                <h1 className="text-6xl sm:text-8xl font-bold text-[#66FCF1] drop-shadow-lg mb-4">
-                    Saahil Gupta
-                </h1>
-                <p className="text-2xl sm:text-3xl text-[#C5C6C7] drop-shadow-md mb-2 font-mono">
-                    {text}
-                    <Cursor cursorStyle="|" />
-                </p>
-                <p className="text-lg sm:text-xl text-[#C5C6C7] italic mb-8 max-w-xl">
-                    Passionate about computer vision, cybersecurity, and building tools that empower users.
-                </p>
-                <button
-                    onClick={() =>
-                        document
-                            .getElementById('projects')
-                            ?.scrollIntoView({ behavior: 'smooth' })
-                    }
-                    className="px-8 py-4 bg-[#66FCF1] text-[#222831] font-semibold rounded shadow hover:bg-[#C5C6C7] transition"
-                >
-                    View Projects
-                </button>
+                <div className="mb-8 md:mb-0 md:mr-8">
+                    <img
+                        src="/Images/SaahilGupta.jpeg"
+                        alt="Saahil Gupta"
+                        className="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg border-4 border-gray-600"
+                    />
+                </div>
+                <div>
+                    <h1 className="text-6xl sm:text-8xl font-bold bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600 bg-clip-text text-transparent drop-shadow-lg mb-4">
+                        Saahil Gupta
+                    </h1>
+                    <p className="text-2xl sm:text-3xl bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 bg-clip-text text-transparent drop-shadow-md mb-2 font-mono">
+                        {text}
+                        <Cursor cursorStyle="|" />
+                    </p>
+                    <p className="text-lg sm:text-xl text-[#C5C6C7] italic mb-8 max-w-xl">
+                        Passionate about computer vision, cybersecurity, and building tools that empower users.
+                    </p>
+                    <button
+                        onClick={() =>
+                            document
+                                .getElementById('projects')
+                                ?.scrollIntoView({ behavior: 'smooth' })
+                        }
+                        className="px-8 py-4 bg-gray-500 text-gray-200 font-semibold rounded shadow hover:bg-gray-600 transition"
+                    >
+                        View Projects
+                    </button>
+                </div>
             </div>
         </motion.section>
     );

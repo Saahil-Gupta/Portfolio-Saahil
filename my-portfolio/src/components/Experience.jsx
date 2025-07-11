@@ -15,16 +15,16 @@ const experiences = [
         'Assisted in optimizing machine learning pipelines to improve efficiency and reliability.',
         ],
     },
-    {
-        role: 'Guest Registration Assistant',
-        company: 'McMaster Housing and Conference Services',
-        location: 'Hamilton, ON',
-        dates: 'Mar 2024 – Present',
-        details: [
-        'Safeguarded students’ mental and physical well-being during overnight shifts by building strong relationships with 40 residents.',
-        'Facilitated communication among emergency services, residence supervisors, and security to uphold student safety.',
-        ],
-    },
+    // {
+    //     role: 'Guest Registration Assistant',
+    //     company: 'McMaster Housing and Conference Services',
+    //     location: 'Hamilton, ON',
+    //     dates: 'Mar 2024 – Present',
+    //     details: [
+    //     'Safeguarded students’ mental and physical well-being during overnight shifts by building strong relationships with 40 residents.',
+    //     'Facilitated communication among emergency services, residence supervisors, and security to uphold student safety.',
+    //     ],
+    // },
     {
         role: 'Front End Development Intern',
         company: 'InStoreIn Technologies Ltd',
@@ -62,15 +62,15 @@ export default function Experience() {
             transition={{ duration: 0.6 }}
         >
         <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-mono text-[#66FCF1] mb-8">Experience</h2>
+            <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600 bg-clip-text text-transparent">Experience</h2>
             <div className="space-y-8">
             {experiences.map(({ role, company, location, dates, details }) => (
                 <div key={`${role}-${company}`}>
-                <h3 className="text-2xl text-[#66FCF1] font-semibold">{role}</h3>
-                <p className="text-[#45A29E] italic mb-2">
+                <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600 bg-clip-text text-transparent">{role}</h3>
+                <p className="text-gray-300 italic mb-2">
                     {company} · {location} · {dates}
                 </p>
-                <ul className="list-disc list-inside text-[#C5C6C7] space-y-1">
+                <ul className="list-disc list-inside text-white space-y-1">
                     {details.map((point, i) => (
                     <li key={i}>{point}</li>
                     ))}

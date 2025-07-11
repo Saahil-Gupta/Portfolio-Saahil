@@ -27,22 +27,22 @@ export default function Education() {
             transition={{ duration: 0.6 }}
             className="container mx-auto bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-4xl"
         >
-            <h2 className="text-4xl font-mono font-bold mb-8 text-center text-[#66FCF1]">
+            <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600 bg-clip-text text-transparent">
             Education
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {education.map((edu) => (
                 <div
                 key={edu.degree}
-                className="bg-white/20 backdrop-blur-sm rounded-lg p-6"
+                className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 backdrop-blur-sm rounded-lg p-6"
                 >
-                <h3 className="text-2xl font-semibold mb-2 text-[#66FCF1]">
+                <h3 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-teal-300 via-gray-300 to-teal-500 bg-clip-text text-transparent">
                     {edu.degree}
                 </h3>
-                <p className="italic text-[#45A29E]">
+                <p className="italic text-gray-300">
                 {edu.institution}
                 </p>
-                <p className="mt-2 text-[#C5C6C7]">
+                <p className="mt-2 text-gray-100">
                 {edu.period}
                 </p>
                 </div>

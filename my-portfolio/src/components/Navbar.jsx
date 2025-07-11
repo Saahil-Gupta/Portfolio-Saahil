@@ -11,7 +11,7 @@ export default function Navbar() {
 
     // ▶️ Scroll-spy
     useEffect(() => {
-        const ids = ['home', 'projects', 'about', 'contact'];
+        const ids = ['home', 'about', 'projects', 'contact'];
         const observers = [];
         ids.forEach(id => {
             const el = document.getElementById(id);
@@ -33,23 +33,23 @@ export default function Navbar() {
 
     return (
         <nav className="fixed w-full z-20 bg-transparent px-6 py-4 flex items-center justify-between">
-            <div className="text-[#66FCF1] font-mono text-lg">Saahil Gupta</div>
+            <div className="text-lg font-bold bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600 bg-clip-text text-transparent">Saahil Gupta</div>
 
             {/* Desktop links */}
             <div className="hidden md:flex items-center space-x-6">
                 <Link smooth to="/#home"     className={linkClass('home')}>Home</Link>
-                <Link smooth to="/#projects" className={linkClass('projects')}>Projects</Link>
                 <Link smooth to="/#about"    className={linkClass('about')}>About</Link>
+                <Link smooth to="/#projects" className={linkClass('projects')}>Projects</Link>
                 <Link smooth to="/#contact"  className={linkClass('contact')}>Contact</Link>
 
                 {/* Social icons */}
                 <a href="mailto:gupts42@mcmaster.ca" className="hover:text-[#ECEFCA]">
                     <HiOutlineMail size={20} />
                 </a>
-                <a href="https://linkedin.com/in/saahil-gupta" target="_blank" rel="noreferrer" className="hover:text-[#ECEFCA]">
+                <a href="https://linkedin.com/in/saahil-gupta" target="_blank" rel="noreferrer" className="hover:text-[#45A29E]">
                     <FaLinkedin size={20} />
                 </a>
-                <a href="https://github.com/Saahil-Gupta" target="_blank" rel="noreferrer" className="hover:text-[#ECEFCA]">
+                <a href="https://github.com/Saahil-Gupta" target="_blank" rel="noreferrer" className="hover:text-[#45A29E]">
                     <FaGithub size={20} />
                 </a>
             </div>
@@ -67,19 +67,19 @@ export default function Navbar() {
                 <div className="absolute top-full left-0 w-full bg-white/10 backdrop-blur-md dark:bg-white/20 flex flex-col p-6 space-y-4 md:hidden">
                     <Link smooth to="/#home"    onClick={() => setMenuOpen(false)} className={linkClass('home')}>Home</Link>
                     {/* <Link smooth to="/#projects"onClick={() => setMenuOpen(false)} className={linkClass('projects')}>Projects</Link> */}
-                    <a href="#projects" onClick={() => scrollTo('projects')} className={linkClass('projects')}>Projects</a>
                     <Link smooth to="/#about"   onClick={() => setMenuOpen(false)} className={linkClass('about')}>About</Link>
+                    <a href="#projects" onClick={() => scrollTo('projects')} className={linkClass('projects')}>Projects</a>
                     <Link smooth to="/#contact" onClick={() => setMenuOpen(false)} className={linkClass('contact')}>Contact</Link>
 
                     {/* Mobile social icons */}
                     <div className="flex space-x-4 mt-4">
-                        <a href="mailto:gupts42@mcmaster.ca" className="hover:text-[#ECEFCA]">
+                        <a href="mailto:gupts42@mcmaster.ca" className="hover:text-[#45A29E]">
                             <HiOutlineMail size={20} />
                         </a>
-                        <a href="https://linkedin.com/in/saahil-gupta" target="_blank" rel="noreferrer" className="hover:text-[#ECEFCA]">
+                        <a href="https://linkedin.com/in/saahil-gupta" target="_blank" rel="noreferrer" className="hover:text-[#45A29E]">
                             <FaLinkedin size={20} />
                         </a>
-                        <a href="https://github.com/Saahil-Gupta" target="_blank" rel="noreferrer" className="hover:text-[#ECEFCA]">
+                        <a href="https://github.com/Saahil-Gupta" target="_blank" rel="noreferrer" className="hover:text-[#45A29E]">
                             <FaGithub size={20} />
                         </a>
                     </div>

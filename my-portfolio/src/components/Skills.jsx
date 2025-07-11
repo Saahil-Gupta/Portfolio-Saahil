@@ -44,7 +44,7 @@ export default function Skills() {
             transition={{ duration: 0.6 }}
         >
         <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-4xl">
-            <h2 className="text-3xl font-bold mb-4 text-[#66FCF1]">Skills</h2>
+            <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600 bg-clip-text text-transparent">Skills</h2>
             <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-6 justify-items-center">
             {skills.map(({ Icon, name }) => (
                 <div
@@ -52,7 +52,7 @@ export default function Skills() {
                 className="flex flex-col items-center group"
                 title={name}
                 >
-                <Icon className="text-5xl text-[#66FCF1] group-hover:scale-110 hover:text-[#45A29E] transition-transform" />
+                <Icon className="text-5xl text-cyan-400 group-hover:text-cyan-600 transition-colors group-hover:scale-110 hover:text-[#45A29E]" />
                 <span className="mt-2 text-sm text-[#45A29E] opacity-0 group-hover:opacity-100 transition-opacity">
                     {name}
                 </span>

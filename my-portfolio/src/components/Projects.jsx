@@ -11,6 +11,8 @@ const projects = [
         image: '/Images/Football_Predictor.jpg',
         codeUrl: 'https://github.com/Saahil-Gupta/Football-Predictor-V1',
         demoUrl: null,
+        skills: ['Flask', 'Tailwind', 'Understats', 'scikit-learn', 'MongoDB'],
+
     },
     {
         title: 'Umee Social App Clone',
@@ -18,6 +20,7 @@ const projects = [
         image: '/Images/Umee.jpg',
         codeUrl: 'https://github.com/Saahil-Gupta/Umee-social',
         demoUrl: null,
+        skills: ['Flutter', 'Firebase'],
     },
     {
         title: 'Portfolio Website',
@@ -25,6 +28,7 @@ const projects = [
         image: '/Images/Portfolio Website.jpg',        
         codeUrl: 'https://github.com/Saahil-Gupta/Portfolio-Saahil',
         demoUrl: 'https://portfolio-saahil.vercel.app/',
+        skills: ['React', 'Tailwind CSS', 'Framer Motion'],
     },
     {
         title: 'Lights Camera Auction',
@@ -32,6 +36,7 @@ const projects = [
         image: '/Images/Lights Camera Auction.jpg',        
         codeUrl: 'https://github.com/Saahil-Gupta/Lights-Camera-Auction',
         demoUrl: 'https://devpost.com/software/lights-camera-auction',
+        skills: ['Flask', 'Node.js', 'MongoDB', 'Spline', 'Websockets', 'Firebase'],
     },
     {
         title: 'Egg-ucate Me',
@@ -39,6 +44,7 @@ const projects = [
         image: '/Images/Eggucateme.png',        
         codeUrl: 'https://github.com/Saahil-Gupta/egg-ucate-me',
         demoUrl: 'https://devpost.com/software/egg-ucate-me',
+        skills: ['Django', 'OAuth', 'Gemini API', 'Whisper API', 'HTML/CSS'],
     },
     {
         title: 'AuxiHelper',
@@ -46,6 +52,7 @@ const projects = [
         image: '/Images/AuxiHelper.jpg',
         codeUrl: 'https://github.com/Saahil-Gupta/auxihelper',
         demoUrl: null,
+        skills: ['Django', 'MongoDB', 'Firebase', 'Gemini API', 'HTML/CSS'],
     },
     {
         title: 'Simple Security Information and Event Management (SIEM) dashboard',
@@ -53,6 +60,7 @@ const projects = [
         image: '/Images/SIEM-dashboard.jpg',
         codeUrl: 'https://github.com/Saahil-Gupta/SIEM',
         demoUrl: null,
+        skills: ['FastAPI', 'React', 'TailwindCSS'],
     },
     {
         title: 'Simple Keylogger',
@@ -60,6 +68,7 @@ const projects = [
         image: '/Images/Keylogger.jpg',
         codeUrl: 'https://github.com/Saahil-Gupta/simple-keylogger',
         demoUrl: null,
+        skills: ['Keylogger-python'],
     },
     {
         title: 'Python Discord Bot (Swift Bot)',
@@ -67,6 +76,7 @@ const projects = [
         image: '/Images/discord.png',
         codeUrl: 'https://github.com/Saahil-Gupta/swift-bot',
         demoUrl: null,
+        skills: ['Discord.py', 'Python'],
     },
 ];
 
@@ -95,9 +105,9 @@ export default function Projects({ showAll = false }) {
         <section id='projects' className="relative flex justify-center py-12 px-4">
         <Background />
         <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-4xl">
-            <h2 className="text-3xl font-bold mb-4 text-[#66FCF1]">Projects</h2>
+            <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600 bg-clip-text text-transparent">Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {list.map(({ title, description, image, codeUrl, demoUrl }) => (
+            {list.map(({ title, description, skills, image, codeUrl, demoUrl }) => (
                 <motion.div
                 key={title}
                 className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden shadow-md flex flex-col"
@@ -111,8 +121,15 @@ export default function Projects({ showAll = false }) {
                     />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-2xl text-[#66FCF1] font-semibold mb-2">{title}</h3>
-                    <p className="text-[#C5C6C7] mb-4 flex-1">{description}</p>
+                    <h3 className="text-2xl bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600 bg-clip-text text-transparent font-semibold mb-2">{title}</h3>
+                    <p className="text-white mb-4 flex-1 h-20 overflow-hidden">{description}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                        {skills.map(skill => (
+                            <span key={skill} className="px-2 py-1 bg-gray-700 text-gray-200 text-sm rounded shadow">
+                                {skill}
+                            </span>
+                        ))}
+                    </div>      
                     <div className="flex space-x-4 mt-auto">
                     <a
                         href={codeUrl}

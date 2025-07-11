@@ -10,3 +10,11 @@
 .animate-fade {
     animation: fade 1s ease-in-out;
 }
+
+::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers */
+}
+
+html {
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}

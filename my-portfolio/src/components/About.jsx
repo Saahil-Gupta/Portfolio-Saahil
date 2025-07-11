@@ -13,12 +13,12 @@ export default function About() {
             transition={{ duration: 0.6 }}
         >
         <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-4xl">
-            <h2 className="text-3xl font-mono text-[#66FCF1] mb-6">About Me</h2>
-            <p className="text-[#C5C6C7] mb-4">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600 bg-clip-text text-transparent drop-shadow-lg mb-6">About Me</h2>
+            <p className="text-white mb-4 drop-shadow-lg">
             I’m a second-year Computer Science student at McMaster University with a Minor in Business, passionate about full-stack development and AI.
             </p>
-            <h3 className="text-2xl font-mono text-[#66FCF1] mb-2">Highlights of Qualifications</h3>
-            <ul className="list-disc list-inside space-y-2 text-[#C5C6C7]">
+            <h3 className="text-2xl text-bold bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600 bg-clip-text text-transparent">Highlights of Qualifications</h3>
+            <ul className="list-disc list-inside space-y-2 text-white drop-shadow-lg">
             <li>Strong leadership and teamwork skills, demonstrated through event coordination and collaborative projects.</li>
             <li>Experience in full-stack development, including React, Flask, MongoDB, and API integrations.</li>
             <li>Excellent communication skills, effectively conveying technical concepts to non-technical audiences.</li>
