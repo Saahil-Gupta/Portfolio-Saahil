@@ -12,10 +12,10 @@ export default function Contact() {
         e.preventDefault();
         emailjs
         .sendForm(
-            'YOUR_SERVICE_ID',
-            'YOUR_TEMPLATE_ID',
+            'service_rr8mmu9',
+            'template_udtg0ag   ',
             formRef.current,
-            'YOUR_PUBLIC_KEY'
+            't8RsZKdZR8X5myt5E'
         )
         .then(
             () => setStatus('Message sent!'),
