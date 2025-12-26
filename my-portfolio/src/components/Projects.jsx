@@ -10,10 +10,18 @@ const projects = [
         description: 'A web app that predicts football match outcomes in 2 leagues, La Liga and Premier League, using machine learning.',
         image: '/Images/Football_Predictor.jpg',
         codeUrl: 'https://github.com/Saahil-Gupta/Football-Predictor-V1',
-        demoUrl: null,
+        demoUrl: 'https://laliga-predictor.onrender.com/',
         skills: ['Flask', 'Tailwind', 'Understats', 'scikit-learn', 'MongoDB'],
 
     },
+    {
+        title: 'Life Link Live',
+        description: 'An offline-first, community-driven disaster prevention app that enables real-time hazard reporting and safety alerts during emergencies.',
+        image: '/Images/life-link-live.png',
+        codeUrl: 'https://github.com/Saahil-Gupta/MEC--2025',
+        demoUrl: 'https://life-link-live.vercel.app/',
+        skills: ['Mapbox', 'React', 'Local Storage', 'PWA'],
+    },                                                                                     
     {
         title: 'Umee Social App Clone',
         description: 'A project for a social media app clone with features like User Profiles, Matching, Chatting, and more.',
