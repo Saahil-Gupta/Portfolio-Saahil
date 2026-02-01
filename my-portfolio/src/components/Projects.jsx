@@ -3,8 +3,25 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Background from './Background';
+import { image } from 'framer-motion/client';
 
 const projects = [
+    {
+        title: 'Prophet',
+        description: 'Prophet is an AI-powered decision support tool built to help student entrepreneurs avoid costly inventory and financial mistakes. Using a multi-agent system, it analyzes risk and uncertainty to guide smarter decisions without relying on guesswork. Designed to reduce stress and burnout, Prophet gives individuals access to the kind of analysis usually reserved for larger organizations.',
+        image: '/Images/Prophet.png',
+        codeUrl: 'https://github.com/Saahil-Gupta/UofTHacks2026',
+        demoUrl: 'https://devpost.com/software/prophet-067kwr',
+        skills: ['LangGraph', 'Next.js', 'Shopify Admin API', 'FastAPI']
+    },
+    {
+        title: 'NeuroVault',
+        description: 'NeuroVault is a caregiver-assisted memory system designed for people with memory loss. Caregivers upload photos with short explanations to capture context once, and patients simply take a photo to receive instant, simple reminders of who or what they are looking at. Built for speed, privacy, and minimal steps, NeuroVault focuses on fast recall without friction.',
+        image: '/Images/NeuroVault.png',
+        codeUrl: 'https://devpost.com/software/project-iv3jdx',
+        demoUrl: 'https://neurovault-v1.vercel.app/',
+        skills: ['Next.js', 'FastAPI', 'MongoDB', 'ElevenLabs TTS', 'Moorcheh.ai']
+    },
     {
         title: 'Football Predictor',
         description: 'A web app that predicts football match outcomes in 2 leagues, La Liga and Premier League, using machine learning.',
