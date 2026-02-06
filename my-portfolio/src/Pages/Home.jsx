@@ -10,20 +10,22 @@ import Education from '../components/Education';
 import Certifications from '../components/Certifications';
 import Resume from '../components/Resume';
 import Contact from '../components/Contact';
+import AnimatedStats from '../components/AnimatedStats';
 
 export default function Home() {
     return (
         <>
-        <Navbar />
-        <Hero />
-        <About />
-        <Projects />
-        <Skills />
-        <Experience />
-        <Education />
-        <Certifications />
-        <Resume />
-        <Contact />
+            <Navbar />
+            <Hero />
+            <AnimatedStats />
+            <About />
+            <Projects />
+            <Skills />
+            <Experience />
+            <Education />
+            <Certifications />
+            <Resume />
+            <Contact />
         </>
     );
 }

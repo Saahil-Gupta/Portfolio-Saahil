@@ -8,6 +8,7 @@ import Home from './Pages/Home';
 import AllProjects from './Pages/AllProjects';
 import { motion } from 'framer-motion';
 import Background from './components/Background';
+import CustomCursor from './components/CustomCursor';
 
 export default function App() {
     const [showSplash, setShowSplash] = useState(true);
@@ -25,31 +26,36 @@ export default function App() {
     }, []);
 
     return (
-        <AnimatePresence exitBeforeEnter>
-            {showSplash ? (
-                <SplashScreen
-                    key="splash"
-                    onFinish={() => setShowSplash(false)}
-                />
-            ) : (
-                // Wrap Home (and your router) in a motion.div
-                <motion.div
-                    key="home"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.8, ease: 'easeOut' }}
-                >
-                    <Background />
-                    <BrowserRouter>
-                        <ScrollToTop />
-                        <Routes>
-                            <Route path="/projects" element={<AllProjects />} />
-                            <Route path="/" element={<Home />} />
-                        </Routes>
-                    </BrowserRouter>
-                </motion.div>
-            )}
-        </AnimatePresence>
+        <>
+            {/* Custom cursor - renders globally */}
+            <CustomCursor />
+
+            <AnimatePresence exitBeforeEnter>
+                {showSplash ? (
+                    <SplashScreen
+                        key="splash"
+                        onFinish={() => setShowSplash(false)}
+                    />
+                ) : (
+                    // Wrap Home (and your router) in a motion.div
+                    <motion.div
+                        key="home"
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                    >
+                        <Background />
+                        <BrowserRouter>
+                            <ScrollToTop />
+                            <Routes>
+                                <Route path="/projects" element={<AllProjects />} />
+                                <Route path="/" element={<Home />} />
+                            </Routes>
+                        </BrowserRouter>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
     );
 }

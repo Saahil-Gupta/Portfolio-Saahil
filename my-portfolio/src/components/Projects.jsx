@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -127,6 +127,65 @@ const cardVariants = {
     },
 };
 
+// 3D Tilt Card Component
+function TiltCard({ children, className = '', style = {} }) {
+    const cardRef = useRef(null);
+    const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0 });
+
+    const handleMouseMove = (e) => {
+        if (!cardRef.current) return;
+
+        const rect = cardRef.current.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const rotateY = ((e.clientX - centerX) / (rect.width / 2)) * 8;
+        const rotateX = -((e.clientY - centerY) / (rect.height / 2)) * 8;
+
+        setTilt({ rotateX, rotateY });
+    };
+
+    const handleMouseLeave = () => {
+        setTilt({ rotateX: 0, rotateY: 0 });
+    };
+
+    return (
+        <motion.div
+            ref={cardRef}
+            className={className}
+            style={{
+                ...style,
+                transformStyle: 'preserve-3d',
+            }}
+            animate={{
+                rotateX: tilt.rotateX,
+                rotateY: tilt.rotateY,
+            }}
+            transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 20,
+            }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+        >
+            {children}
+            {/* Glare effect */}
+            <div
+                className="absolute inset-0 rounded-xl pointer-events-none transition-opacity duration-200"
+                style={{
+                    background: `linear-gradient(
+                        ${135 + tilt.rotateY * 3}deg, 
+                        rgba(20, 184, 166, 0.15) 0%, 
+                        transparent 60%
+                    )`,
+                    opacity: Math.abs(tilt.rotateX) + Math.abs(tilt.rotateY) > 0 ? 1 : 0,
+                }}
+            />
+        </motion.div>
+    );
+}
+
 export default function Projects({ showAll = false }) {
     const [visibleCount, setVisibleCount] = useState(projects.length);
 
@@ -164,69 +223,72 @@ export default function Projects({ showAll = false }) {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.1 }}
+                    style={{ perspective: '1000px' }}
                 >
                     {list.map(({ title, description, skills, image, codeUrl, demoUrl }) => (
-                        <motion.div
+                        <TiltCard
                             key={title}
-                            className="rounded-xl overflow-hidden shadow-md flex flex-col group transition-all duration-300 hover:shadow-[0_10px_40px_rgba(20,184,166,0.2)]"
+                            className="rounded-xl overflow-hidden shadow-md flex flex-col group relative"
                             style={{
                                 backgroundColor: 'rgba(255,255,255,0.05)',
                                 backdropFilter: 'blur(8px)',
                                 border: '1px solid rgba(255,255,255,0.1)'
                             }}
-                            variants={cardVariants}
-                            whileHover={{ scale: 1.03 }}
-                            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                         >
-                            <div className="h-48 overflow-hidden">
-                                <img
-                                    src={image}
-                                    alt={title}
-                                    className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-110"
-                                />
-                            </div>
-                            <div className="p-6 flex flex-col flex-1">
-                                <h3 className="text-2xl bg-gradient-to-r from-[#14b8a6] via-[#5eead4] to-[#fb7185] bg-clip-text text-transparent font-semibold mb-2">
-                                    {title}
-                                </h3>
-                                <p className="text-slate-300 mb-4 flex-1 h-20 overflow-hidden text-sm">
-                                    {description}
-                                </p>
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {skills.map(skill => (
-                                        <span
-                                            key={skill}
-                                            className="px-2 py-1 text-xs rounded-full"
-                                            style={{ backgroundColor: 'rgba(20,184,166,0.2)', color: '#5eead4', border: '1px solid rgba(20,184,166,0.3)' }}
-                                        >
-                                            {skill}
-                                        </span>
-                                    ))}
+                            <motion.div
+                                variants={cardVariants}
+                                className="flex flex-col h-full"
+                            >
+                                <div className="h-48 overflow-hidden">
+                                    <img
+                                        src={image}
+                                        alt={title}
+                                        className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-110"
+                                    />
                                 </div>
-                                <div className="flex space-x-4 mt-auto">
-                                    <a
-                                        href={codeUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center transition-colors duration-300"
-                                        style={{ color: '#5eead4' }}
-                                    >
-                                        <FaGithub className="mr-1" /> Code
-                                    </a>
-                                    {demoUrl && (
+                                <div className="p-6 flex flex-col flex-1">
+                                    <h3 className="text-2xl bg-gradient-to-r from-[#14b8a6] via-[#5eead4] to-[#fb7185] bg-clip-text text-transparent font-semibold mb-2">
+                                        {title}
+                                    </h3>
+                                    <p className="text-slate-300 mb-4 flex-1 h-20 overflow-hidden text-sm">
+                                        {description}
+                                    </p>
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                        {skills.map(skill => (
+                                            <span
+                                                key={skill}
+                                                className="px-2 py-1 text-xs rounded-full"
+                                                style={{ backgroundColor: 'rgba(20,184,166,0.2)', color: '#5eead4', border: '1px solid rgba(20,184,166,0.3)' }}
+                                            >
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <div className="flex space-x-4 mt-auto">
                                         <a
-                                            href={demoUrl}
+                                            href={codeUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center transition-colors duration-300"
+                                            className="flex items-center transition-colors duration-300 hover:text-[#14b8a6]"
                                             style={{ color: '#5eead4' }}
                                         >
-                                            <FaExternalLinkAlt className="mr-1" /> Demo
+                                            <FaGithub className="mr-1" /> Code
                                         </a>
-                                    )}
+                                        {demoUrl && (
+                                            <a
+                                                href={demoUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center transition-colors duration-300 hover:text-[#14b8a6]"
+                                                style={{ color: '#5eead4' }}
+                                            >
+                                                <FaExternalLinkAlt className="mr-1" /> Demo
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
+                            </motion.div>
+                        </TiltCard>
                     ))}
                 </motion.div>
 
