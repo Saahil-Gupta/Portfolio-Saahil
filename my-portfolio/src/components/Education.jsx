@@ -16,39 +16,64 @@ const education = [
     },
 ];
 
+const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+            delay: i * 0.15,
+            type: 'spring',
+            stiffness: 100,
+            damping: 15,
+        },
+    }),
+};
+
 export default function Education() {
     return (
         <section id="education" className="relative flex justify-center py-20 px-4">
-        <Background />
-        <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="container mx-auto bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-4xl"
-        >
-            <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600 bg-clip-text text-transparent">
-            Education
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {education.map((edu) => (
-                <div
-                key={edu.degree}
-                className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 backdrop-blur-sm rounded-lg p-6"
-                >
-                <h3 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-teal-300 via-gray-300 to-teal-500 bg-clip-text text-transparent">
-                    {edu.degree}
-                </h3>
-                <p className="italic text-gray-300">
-                {edu.institution}
-                </p>
-                <p className="mt-2 text-gray-100">
-                {edu.period}
-                </p>
+            <Background />
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6 }}
+                className="container mx-auto rounded-2xl shadow-lg p-6 w-full max-w-4xl"
+                style={{ backgroundColor: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(12px)', border: '1px solid rgba(20,184,166,0.2)' }}
+            >
+                <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-[#14b8a6] via-[#5eead4] to-[#fb7185] bg-clip-text text-transparent">
+                    Education
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {education.map((edu, index) => (
+                        <motion.div
+                            key={edu.degree}
+                            className="rounded-lg p-6 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(20,184,166,0.15)]"
+                            style={{
+                                background: 'linear-gradient(to bottom right, #0c1929, #162a40, #0c1929)',
+                                border: '1px solid rgba(20,184,166,0.2)'
+                            }}
+                            variants={cardVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            custom={index}
+                            whileHover={{ scale: 1.02 }}
+                        >
+                            <h3 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-[#14b8a6] via-[#5eead4] to-[#fb7185] bg-clip-text text-transparent">
+                                {edu.degree}
+                            </h3>
+                            <p className="italic text-slate-400">
+                                {edu.institution}
+                            </p>
+                            <p className="mt-2 text-slate-300">
+                                {edu.period}
+                            </p>
+                        </motion.div>
+                    ))}
                 </div>
-            ))}
-            </div>
-        </motion.div>
+            </motion.div>
         </section>
     );
 }

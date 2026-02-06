@@ -3,7 +3,6 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Background from './Background';
-import { image } from 'framer-motion/client';
 
 const projects = [
     {
@@ -29,7 +28,6 @@ const projects = [
         codeUrl: 'https://github.com/Saahil-Gupta/Football-Predictor-V1',
         demoUrl: 'https://laliga-predictor.onrender.com/',
         skills: ['Flask', 'Tailwind', 'Understats', 'scikit-learn', 'MongoDB'],
-
     },
     {
         title: 'Life Link Live',
@@ -38,7 +36,7 @@ const projects = [
         codeUrl: 'https://github.com/Saahil-Gupta/MEC--2025',
         demoUrl: 'https://life-link-live.vercel.app/',
         skills: ['Mapbox', 'React', 'Local Storage', 'PWA'],
-    },                                                                                     
+    },
     {
         title: 'Umee Social App Clone',
         description: 'A project for a social media app clone with features like User Profiles, Matching, Chatting, and more.',
@@ -50,7 +48,7 @@ const projects = [
     {
         title: 'Portfolio Website',
         description: 'My personal portfolio website showcasing my projects and skills. (a.k.a this website)',
-        image: '/Images/Portfolio Website.jpg',        
+        image: '/Images/Portfolio Website.jpg',
         codeUrl: 'https://github.com/Saahil-Gupta/Portfolio-Saahil',
         demoUrl: 'https://portfolio-saahil.vercel.app/',
         skills: ['React', 'Tailwind CSS', 'Framer Motion'],
@@ -58,7 +56,7 @@ const projects = [
     {
         title: 'Lights Camera Auction',
         description: 'Silent Auction platform',
-        image: '/Images/Lights Camera Auction.jpg',        
+        image: '/Images/Lights Camera Auction.jpg',
         codeUrl: 'https://github.com/Saahil-Gupta/Lights-Camera-Auction',
         demoUrl: 'https://devpost.com/software/lights-camera-auction',
         skills: ['Flask', 'Node.js', 'MongoDB', 'Spline', 'Websockets', 'Firebase'],
@@ -66,7 +64,7 @@ const projects = [
     {
         title: 'Egg-ucate Me',
         description: 'AI-powered personalized learning platform with adaptive flashcards and quizzes.',
-        image: '/Images/Eggucateme.png',        
+        image: '/Images/Eggucateme.png',
         codeUrl: 'https://github.com/Saahil-Gupta/egg-ucate-me',
         demoUrl: 'https://devpost.com/software/egg-ucate-me',
         skills: ['Django', 'OAuth', 'Gemini API', 'Whisper API', 'HTML/CSS'],
@@ -105,19 +103,43 @@ const projects = [
     },
 ];
 
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+        },
+    },
+};
+
+const cardVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            type: 'spring',
+            stiffness: 100,
+            damping: 15,
+        },
+    },
+};
+
 export default function Projects({ showAll = false }) {
     const [visibleCount, setVisibleCount] = useState(projects.length);
 
     useEffect(() => {
         if (showAll) {
-        setVisibleCount(projects.length);
-        return;
+            setVisibleCount(projects.length);
+            return;
         }
         const handleResize = () => {
-        const w = window.innerWidth;
-        if (w < 768) setVisibleCount(2);
-        else if (w < 1024) setVisibleCount(4);
-        else setVisibleCount(5);
+            const w = window.innerWidth;
+            if (w < 768) setVisibleCount(2);
+            else if (w < 1024) setVisibleCount(4);
+            else setVisibleCount(5);
         };
         handleResize();
         window.addEventListener('resize', handleResize);
@@ -128,69 +150,97 @@ export default function Projects({ showAll = false }) {
 
     return (
         <section id='projects' className="relative flex justify-center py-12 px-4">
-        <Background />
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-4xl">
-            <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600 bg-clip-text text-transparent">Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {list.map(({ title, description, skills, image, codeUrl, demoUrl }) => (
+            <Background />
+            <div
+                className="rounded-2xl shadow-lg p-6 w-full max-w-4xl"
+                style={{ backgroundColor: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(12px)', border: '1px solid rgba(20,184,166,0.2)' }}
+            >
+                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-[#14b8a6] via-[#5eead4] to-[#fb7185] bg-clip-text text-transparent">
+                    Projects
+                </h2>
                 <motion.div
-                key={title}
-                className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden shadow-md flex flex-col"
-                whileHover={{ scale: 1.03, boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
                 >
-                <div className="h-48">
-                    <img
-                    src={image}
-                    alt={title}
-                    className="w-full h-full object-cover"
-                    />
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-2xl bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600 bg-clip-text text-transparent font-semibold mb-2">{title}</h3>
-                    <p className="text-white mb-4 flex-1 h-20 overflow-hidden">{description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                        {skills.map(skill => (
-                            <span key={skill} className="px-2 py-1 bg-gray-700 text-gray-200 text-sm rounded shadow">
-                                {skill}
-                            </span>
-                        ))}
-                    </div>      
-                    <div className="flex space-x-4 mt-auto">
-                    <a
-                        href={codeUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center text-[#66FCF1] hover:text-[#C5C6C7] transition"
-                    >
-                        <FaGithub className="mr-1" /> Code
-                    </a>
-                    {demoUrl && (
-                        <a
-                        href={demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center text-[#66FCF1] hover:text-[#C5C6C7] transition"
+                    {list.map(({ title, description, skills, image, codeUrl, demoUrl }) => (
+                        <motion.div
+                            key={title}
+                            className="rounded-xl overflow-hidden shadow-md flex flex-col group transition-all duration-300 hover:shadow-[0_10px_40px_rgba(20,184,166,0.2)]"
+                            style={{
+                                backgroundColor: 'rgba(255,255,255,0.05)',
+                                backdropFilter: 'blur(8px)',
+                                border: '1px solid rgba(255,255,255,0.1)'
+                            }}
+                            variants={cardVariants}
+                            whileHover={{ scale: 1.03 }}
+                            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                         >
-                        <FaExternalLinkAlt className="mr-1" /> Demo
-                        </a>
-                    )}
-                    </div>
-                </div>
+                            <div className="h-48 overflow-hidden">
+                                <img
+                                    src={image}
+                                    alt={title}
+                                    className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-110"
+                                />
+                            </div>
+                            <div className="p-6 flex flex-col flex-1">
+                                <h3 className="text-2xl bg-gradient-to-r from-[#14b8a6] via-[#5eead4] to-[#fb7185] bg-clip-text text-transparent font-semibold mb-2">
+                                    {title}
+                                </h3>
+                                <p className="text-slate-300 mb-4 flex-1 h-20 overflow-hidden text-sm">
+                                    {description}
+                                </p>
+                                <div className="flex flex-wrap gap-2 mb-4">
+                                    {skills.map(skill => (
+                                        <span
+                                            key={skill}
+                                            className="px-2 py-1 text-xs rounded-full"
+                                            style={{ backgroundColor: 'rgba(20,184,166,0.2)', color: '#5eead4', border: '1px solid rgba(20,184,166,0.3)' }}
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                                <div className="flex space-x-4 mt-auto">
+                                    <a
+                                        href={codeUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center transition-colors duration-300"
+                                        style={{ color: '#5eead4' }}
+                                    >
+                                        <FaGithub className="mr-1" /> Code
+                                    </a>
+                                    {demoUrl && (
+                                        <a
+                                            href={demoUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center transition-colors duration-300"
+                                            style={{ color: '#5eead4' }}
+                                        >
+                                            <FaExternalLinkAlt className="mr-1" /> Demo
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
                 </motion.div>
-            ))}
-            </div>
 
-            {!showAll && projects.length > visibleCount && (
-            <div className="text-center mt-6">
-                <Link
-                to="/projects"
-                className="px-6 py-3 bg-white/20 backdrop-blur-sm text-white font-semibold rounded shadow hover:bg-white/30 transition"
-                >
-                View More Projects
-                </Link>
+                {!showAll && projects.length > visibleCount && (
+                    <div className="text-center mt-8">
+                        <Link
+                            to="/projects"
+                            className="inline-block px-8 py-3 bg-gradient-to-r from-[#14b8a6] to-[#fb7185] text-white font-semibold rounded-lg shadow-lg hover:shadow-[0_0_30px_rgba(20,184,166,0.4)] transition-all duration-300"
+                        >
+                            View More Projects
+                        </Link>
+                    </div>
+                )}
             </div>
-            )}
-        </div>
         </section>
     );
 }

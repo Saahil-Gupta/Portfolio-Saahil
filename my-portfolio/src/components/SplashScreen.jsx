@@ -15,10 +15,9 @@ const languages = [
     '你好'
 ];
 
-// Tweak these to taste
-const WORD_DELAY_MS = 850;     // how long each word stays
-const FINISH_DELAY_MS = 1200;  // pause on last word before leaving
-const TRANSITION_SEC = 0.45;   // how smooth the fade/slide is
+const WORD_DELAY_MS = 850;
+const FINISH_DELAY_MS = 1200;
+const TRANSITION_SEC = 0.45;
 
 export default function SplashScreen({ onFinish }) {
     const [index, setIndex] = useState(0);
@@ -38,7 +37,7 @@ export default function SplashScreen({ onFinish }) {
     return (
         <motion.div
             className="flex items-center justify-center h-screen w-screen
-                    bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900
+                    bg-gradient-to-br from-[#0c1929] via-[#162a40] to-[#0c1929]
                     overflow-hidden"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 1.12 }}
@@ -52,7 +51,7 @@ export default function SplashScreen({ onFinish }) {
                     exit={{ opacity: 0, y: -14 }}
                     transition={{ duration: TRANSITION_SEC, ease: 'easeOut' }}
                     className="pb-4 leading-none text-6xl sm:text-8xl font-bold
-                            bg-gradient-to-r from-teal-400 via-gray-300 to-teal-600
+                            bg-gradient-to-r from-[#14b8a6] via-[#5eead4] to-[#fb7185]
                             bg-clip-text text-transparent text-center"
                 >
                     {languages[index]}
