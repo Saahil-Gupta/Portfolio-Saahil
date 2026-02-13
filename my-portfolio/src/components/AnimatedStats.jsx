@@ -1,11 +1,13 @@
 // src/components/AnimatedStats.jsx
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FaProjectDiagram, FaBriefcase, FaCertificate, FaCode } from 'react-icons/fa';
+import { FaProjectDiagram, FaBriefcase, FaCertificate, FaCode, FaTrophy, FaGithub } from 'react-icons/fa';
 import Background from './Background';
 
 const stats = [
     { icon: FaProjectDiagram, value: 12, suffix: '+', label: 'Projects Built' },
+    { icon: FaTrophy, value: 6, suffix: '+', label: 'Hackathons Attended' },
+    { icon: FaGithub, value: 94, suffix: '+', label: 'GitHub Commits' },
     { icon: FaBriefcase, value: 3, suffix: '', label: 'Internships' },
     { icon: FaCertificate, value: 3, suffix: '', label: 'Certifications' },
     { icon: FaCode, value: 10, suffix: '+', label: 'Technologies' },
@@ -76,7 +78,7 @@ export default function AnimatedStats() {
                     By The Numbers
                 </h2>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                     {stats.map(({ icon: Icon, value, suffix, label }, index) => (
                         <motion.div
                             key={label}

@@ -8,6 +8,8 @@ import Skills from '../components/Skills';
 import Experience from '../components/Experience';
 import Education from '../components/Education';
 import Certifications from '../components/Certifications';
+import Hackathons from '../components/Hackathons';
+import Timeline from '../components/Timeline';
 import Resume from '../components/Resume';
 import Contact from '../components/Contact';
 import AnimatedStats from '../components/AnimatedStats';
@@ -19,8 +21,10 @@ export default function Home() {
             <Hero />
             <AnimatedStats />
             <About />
+            <Timeline />
             <Projects />
             <Skills />
+            <Hackathons />
             <Experience />
             <Education />
             <Certifications />
